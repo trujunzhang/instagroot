@@ -10,6 +10,9 @@ import 'package:ieatta/src/widget/avatar_widget.dart';
 import 'package:ieatta/src/widget/comment_widget.dart';
 import 'package:ieatta/ui_utils.dart';
 
+import 'post/add_comment_modal.dart';
+import 'post/photo_carousel_indicator.dart';
+
 class PostWidget extends StatefulWidget {
   final Post post;
 
@@ -216,97 +219,6 @@ class _PostWidgetState extends State<PostWidget> {
             ],
           ),
         ),
-      ],
-    );
-  }
-}
-
-class PhotoCarouselIndicator extends StatelessWidget {
-  final int photoCount;
-  final int activePhotoIndex;
-
-  PhotoCarouselIndicator({
-    @required this.photoCount,
-    @required this.activePhotoIndex,
-  });
-
-  Widget _buildDot({bool isActive}) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 3.0, right: 3.0),
-        child: Container(
-          height: isActive ? 7.5 : 6.0,
-          width: isActive ? 7.5 : 6.0,
-          decoration: BoxDecoration(
-            color: isActive ? Colors.blue : Colors.grey,
-            borderRadius: BorderRadius.circular(4.0),
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(photoCount, (i) => i)
-          .map((i) => _buildDot(isActive: i == activePhotoIndex))
-          .toList(),
-    );
-  }
-}
-
-class AddCommentModal extends StatefulWidget {
-  final User user;
-  final ValueChanged<String> onPost;
-
-  AddCommentModal({@required this.user, @required this.onPost});
-
-  @override
-  _AddCommentModalState createState() => _AddCommentModalState();
-}
-
-class _AddCommentModalState extends State<AddCommentModal> {
-  final _textController = TextEditingController();
-  bool _canPost = false;
-
-  @override
-  void initState() {
-    _textController.addListener(() {
-      setState(() => _canPost = _textController.text.isNotEmpty);
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _textController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        AvatarWidget(user: widget.user),
-        Expanded(
-          child: TextField(
-            controller: _textController,
-            autofocus: true,
-            decoration: InputDecoration(
-              hintText: 'Add a comment...',
-              border: InputBorder.none,
-            ),
-          ),
-        ),
-        FlatButton(
-          child: Opacity(
-            opacity: _canPost ? 1.0 : 0.4,
-            child: Text('Post', style: TextStyle(color: Colors.blue)),
-          ),
-          onPressed:
-              _canPost ? () => widget.onPost(_textController.text) : null,
-        )
       ],
     );
   }
