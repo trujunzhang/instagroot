@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1001788466696",
+    "firebase_url": "https://solid-scope-111511.firebaseio.com",
+    "project_id": "solid-scope-111511",
+    "storage_bucket": "solid-scope-111511.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001788466696:android:cc0209b455ddff79",
+        "android_client_info": {
+          "package_name": "com.example.ieatta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001788466696-orevna12vs6p0f8i5krjkt1sksec1uei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvZhYwgB96moOy2eP8KXAmwwq9-z-zsXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001788466696-orevna12vs6p0f8i5krjkt1sksec1uei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
