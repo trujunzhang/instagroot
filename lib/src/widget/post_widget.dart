@@ -192,6 +192,9 @@ class _PostWidgetState extends State<PostWidget> {
                   child: Column(
                     children: widget.post.comments
                         .map((Comment c) => CommentWidget(c))
+//                        .map((Comment c) => Container(
+//
+//                    ))
                         .toList(),
                   ),
                 ),
